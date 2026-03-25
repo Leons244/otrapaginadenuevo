@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OROZCO INOX | Ingeniería Inoxidable para el Sector Agro</title>
+    
+    <meta name="description" content="Expertos en fabricación de maquinaria en Acero Inoxidable 304/316. Ordeños, marmitas y tanques térmicos de alta durabilidad.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-blue: #0f172a;
+            --brand-accent: #10b981;
+            --brand-gold: #f59e0b; /* Color para resaltar garantías */
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; color: var(--brand-blue); line-height: 1.6; background: #fff; }
+
+        /* --- HEADER --- */
+        nav {
+            position: fixed; width: 100%; top: 0; z-index: 2000;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0.8rem 0;
+        }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--brand-blue); text-decoration: none; letter-spacing: -1px; }
+        .logo span { color: var(--brand-accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--brand-blue); font-weight: 600; font-size: 0.9rem; }
+        
+        /* --- HERO --- */
+        .hero {
+            height: 90vh; min-height: 650px; display: flex; align-items: center;
+            background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: white; padding: 0 5%;
+        }
+        .hero-inner { max-width: 1300px; margin: 0 auto; width: 100%; }
+        .hero-badge { background: var(--brand-accent); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.25rem; color: #94a3b8; max-width: 650px; margin-bottom: 2.5rem; }
+
+        /* --- TRUST STRIP --- */
+        .trust-strip { background: var(--light-bg); padding: 2rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .trust-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .trust-item { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 0.9rem; color: #475569; }
+        .trust-item svg { color: var(--brand-accent); }
+
+        /* --- PRODUCTOS --- */
+        .section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+        
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .card { 
+            background: white; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; 
+            transition: var(--transition); display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border-color: var(--brand-accent); }
+        .card-img { height: 250px; background: #e2e8f0; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .card-body { padding: 2rem; flex-grow: 1; }
+        .card-body h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .card-body p { color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* --- FAQ SECTION --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        details { background: var(--light-bg); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1rem; cursor: pointer; }
+        details summary { font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        details summary::after { content: '+'; color: var(--brand-accent); font-size: 1.5rem; }
+        details[open] summary::after { content: '-'; }
+
+        /* --- CTA / FORM --- */
+        .cta-box { 
+            background: var(--brand-blue); color: white; border-radius: 24px; padding: 4rem; 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+        }
+        .form-card { background: white; padding: 2.5rem; border-radius: 16px; }
+        .form-card input, .form-card select, .form-card textarea {
+            width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit;
+        }
+        .btn-submit { 
+            width: 100%; background: var(--brand-accent); color: white; padding: 1rem; 
+            border: none; border-radius: 8px; font-weight: 800; cursor: pointer; transition: var(--transition);
+        }
+        .btn-submit:hover { background: #059669; }
+
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3); z-index: 3000; text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .cta-box { grid-template-columns: 1fr; padding: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">OROZCO<span>INOX</span></a>
+            <div class="nav-links">
+                <a href="#maquinaria">Maquinaria</a>
+                <a href="#calidad">Calidad Inox</a>
+                <a href="#faq">Preguntas</a>
+                <a href="#contacto" style="background: var(--brand-blue); color: white; padding: 8px 20px; border-radius: 8px;">Cotizar Ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge">Certificación AISI 304/316</span>
+            <h1>Maquinaria Agroindustrial: <br><span style="color: var(--brand-accent);">Invierta una vez, produzca por décadas.</span></h1>
+            <p>Fabricamos equipos en acero inoxidable con acabado sanitario para evitar contaminaciones y maximizar la rentabilidad de su finca o planta procesadora.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#contacto" class="btn-submit" style="width: auto; padding: 1.2rem 2.5rem; text-decoration: none; text-align: center;">Solicitar Asesoría Técnica</a>
+                <a href="#maquinaria" style="color: white; padding: 1.2rem; font-weight: 700; text-decoration: none;">Ver Catálogo ↓</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="trust-strip">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Garantía Estructural 5 Años
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Instalación en Todo el País
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                Acero Grado Alimenticio
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="maquinaria">
+        <div class="section-title">
+            <h2>Ingeniería a su Medida</h2>
+            <p style="color: #64748b;">Equipos diseñados bajo estándares internacionales de higiene.</p>
+        </div>
+
+        <div class="grid-cards">
+            <article class="card">
+                <div class="card-img">
+                    <img src="images/ordeño-1.jpg" alt="Ordeño">
+                </div>
+                <div class="card-body">
+                    <h3>Sistemas de Ordeño</h3>
+                    <p>Unidades de ordeño automatizadas con tubería en acero inoxidable 316. Máxima higiene para su leche.</p>
+                    <a href="#contacto" style="color: var(--brand-accent); font-weight: 700; text-decoration: none;">Solicitar Cotización →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img src="images/marmita-500l.jpg" alt="Marmitas">
+                </div>
+                <div class="card-body">
+                    <h3>Marmitas Industriales</h3>
+                    <p>Desde 50L hasta 1000L. Ideales para la industria quesera, salsas y mermeladas. Doble chaqueta térmica.</p>
+                    <a href="#contacto" style="color: var(--brand-accent); font-weight: 700; text-decoration: none;">Ver Ficha Técnica →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img src="images/tanque-1000l.jpg" alt="Tanques">
+                </div>
+                <div class="card-body">
+                    <h3>Tanques de Enfriamiento</h3>
+                    <p>Mantenga la cadena de frío. Tanques térmicos con aislamiento de alta densidad y acabado espejo.</p>
+                    <a href="#contacto" style="color: var(--brand-accent); font-weight: 700; text-decoration: none;">Consultar Medidas →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="faq" style="background: #fff;">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq-container">
+            <details>
+                <summary>¿Qué tipo de acero utilizan en sus máquinas?</summary>
+                <p style="padding-top: 1rem; color: #64748b;">Utilizamos exclusivamente Acero Inoxidable AISI 304 y 316 (grado quirúrgico y alimenticio), garantizando que no haya desprendimiento de partículas ni oxidación en ambientes húmedos.</p>
+            </details>
+            <details>
+                <summary>¿Hacen envíos e instalaciones a todo el país?</summary>
+                <p style="padding-top: 1rem; color: #64748b;">Sí. Contamos con un equipo técnico especializado que se encarga del transporte, nivelación y puesta en marcha de la maquinaria en su ubicación.</p>
+            </details>
+            <details>
+                <summary>¿Cómo solicito un diseño personalizado?</summary>
+                <p style="padding-top: 1rem; color: #64748b;">Puede completar el formulario o escribirnos a WhatsApp. Un ingeniero se pondrá en contacto para solicitar las medidas de su planta y presentarle un plano preliminar.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="section" id="contacto">
+        <div class="cta-box">
+            <div class="cta-text">
+                <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: 'Playfair Display';">¿Listo para subir de nivel su producción?</h3>
+                <p style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 2rem;">No pierda más dinero con equipos que requieren mantenimiento constante. Pásese al acero inoxidable de alta gama.</p>
+                <div style="display: flex; gap: 20px;">
+                    <div><strong style="color: var(--brand-accent); font-size: 1.5rem;">+15 años</strong><br> de experiencia</div>
+                    <div><strong style="color: var(--brand-accent); font-size: 1.5rem;">100%</strong><br> Clientes Satisfechos</div>
+                </div>
+            </div>
+            
+            <div class="form-card">
+                <h4 style="color: var(--brand-blue); margin-bottom: 1.5rem; text-align: center;">Solicitar Consultoría Técnica</h4>
+                <form id="finalForm">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="tel" placeholder="Número de WhatsApp" required>
+                    <select required>
+                        <option value="">Equipo que necesita...</option>
+                        <option value="ordeno">Equipo de Ordeño</option>
+                        <option value="marmita">Marmita Industrial</option>
+                        <option value="tanque">Tanque de Enfriamiento</option>
+                        <option value="otro">Otro Proyecto Especial</option>
+                    </select>
+                    <textarea rows="4" placeholder="¿Cuántos litros/unidades produce al día?"></textarea>
+                    <button type="submit" class="btn-submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 4rem 0; color: #64748b; border-top: 1px solid #e2e8f0;">
+        <p>© 2026 OROZCO INOX – Alta Ingeniería en Acero Inoxidable</p>
+    </footer>
+
+    <a href="https://wa.me/15519876543?text=Hola,%20me%20gustaría%20recibir%20asesoría%20sobre%20maquinaria%20inoxidable" class="wa-float" target="_blank">
+        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.06 3.973L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+
+    <script>
+        // Manejo del formulario
+        document.getElementById('finalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerHTML = 'Enviando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('¡Solicitud recibida! Un ingeniero experto en su sector le contactará por WhatsApp en breve.');
+                this.reset();
+                btn.innerHTML = 'Enviar Solicitud';
+                btn.disabled = false;
+            }, 1500);
+        });
+
+        // Revelado suave de elementos al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .cta-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
